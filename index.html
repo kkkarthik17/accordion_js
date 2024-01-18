@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Accordian</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <section class="text-center my-3">
+            <h1>
+                Accordian using Prue Java Script
+            </h1>
+        </section>
+
+        <section class="p-2">
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true" onclick="toggleAccordion('activeItem', this)">An
+                    active
+                    item</li>
+                <div id="activeItem" class="p-3 acc-border">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid excepturi ipsam accusamus minima
+                        obcaecati, saepe sit unde ratione quia, cum id reprehenderit aut magni ipsa impedit tempora. Rem
+                        facilis, maiores commodi sunt dolorem itaque recusandae error obcaecati impedit id ratione
+                        debitis
+                        possimus ullam explicabo voluptatum animi nihil placeat odit est esse, molestiae suscipit
+                        doloremque! Veritatis accusantium expedita ea aliquam minus sunt quas atque ab odio blanditiis
+                        dolores nisi enim nostrum possimus, corporis fugiat unde. Voluptatem temporibus quisquam modi
+                        non
+                        omnis!</p>
+                </div>
+                <li class="list-group-item" onclick="toggleAccordion('secondItem', this)">A second item</li>
+                <div id="secondItem" class="p-3 acc-border">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis ratione quis enim iste nulla
+                        cumque
+                        harum incidunt aut, expedita dolores veritatis voluptatem, animi possimus, maiores modi! Quas
+                        laboriosam dolorum architecto esse et accusantium odit laborum harum exercitationem quod fugiat
+                        culpa quo facere numquam eos, doloremque sapiente, saepe odio voluptas blanditiis deleniti?
+                        Delectus
+                        placeat minus, quibusdam repellat sit eum vitae laudantium, facilis similique voluptatibus
+                        exercitationem ullam reprehenderit facere ut esse reiciendis!</p>
+                </div>
+                <li class="list-group-item" onclick="toggleAccordion('thirdItem', this)">A third item</li>
+                <div id="thirdItem" class="p-3 acc-border">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti quis eveniet ut officiis, aut
+                        soluta pariatur veniam placeat quisquam adipisci vero. Optio modi eius explicabo mollitia
+                        nostrum
+                        vero sint harum excepturi molestiae voluptatem impedit quos sapiente magni inventore animi
+                        ipsum,
+                        exercitationem maxime. Voluptas, possimus! Eaque, quibusdam aut? Ea, perferendis cumque!</p>
+                </div>
+                <li class="list-group-item" onclick="toggleAccordion('fourthItem', this)">A fourth item</li>
+                <div id="fourthItem" class="p-3 acc-border">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure explicabo culpa aperiam nisi est,
+                        expedita voluptatem enim eum facere fugiat doloribus, aliquam exercitationem dignissimos aut
+                        magnam non! Non optio provident exercitationem ratione commodi nostrum! Perspiciatis placeat
+                        officia doloremque dolore maxime.</p>
+                </div>
+                <li class="list-group-item" onclick="toggleAccordion('fifthItem', this)">And a fifth one</li>
+
+                <div id="fifthItem" class="p-3 acc-border">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptatem qui accusamus commodi
+                        consequuntur? Delectus, esse, voluptatum quod porro eaque commodi fugit deleniti quibusdam,
+                        magnam
+                        architecto veniam at nemo accusantium!</p>
+                </div>
+            </ul>
+        </section>
+
+    </div>
+
+
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        function toggleAccordion(itemId, element) {
+            var itemContent = document.getElementById(itemId);
+            var isActive = element.classList.contains('active');
+
+            // Close all accordions
+            closeAllAccordions();
+
+            // Toggle the current accordion
+            if (!isActive) {
+                itemContent.style.display = 'block';
+                element.classList.add('active');
+                itemContent.style.maxHeight = itemContent.scrollHeight + "px";
+            }
+
+            function closeAllAccordions() {
+                var accordions = document.getElementsByClassName('acc-border');
+                var accordionItems = document.getElementsByClassName('list-group-item');
+
+                for (var i = 0; i < accordions.length; i++) {
+                    accordions[i].style.display = 'none';
+                    accordions[i].style.maxHeight = 0;
+                }
+
+                for (var i = 0; i < accordionItems.length; i++) {
+                    accordionItems[i].classList.remove('active');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
